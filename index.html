@@ -210,7 +210,7 @@
       box-shadow: 0 18px 60px rgba(0,0,0,.35);
     }
 
-    .feature-card img {
+    .feature-card > img {
       width: 100%;
       height: 100%;
       position: absolute;
@@ -219,7 +219,7 @@
       transition: transform .7s ease;
     }
 
-    .feature-card:hover img { transform: scale(1.08); }
+    .feature-card:hover > img { transform: scale(1.08); }
 
     .feature-card::after {
       content: "";
@@ -235,11 +235,16 @@
       right: 24px;
       bottom: 32px;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .card-copy h2 {
+      width: 100%;
+      text-align: center;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 2.6vw, 41px);
+      font-size: clamp(24px, 2.2vw, 35px);
       line-height: 1.05;
       text-transform: uppercase;
       font-weight: 400;
@@ -262,6 +267,13 @@
       height: 1px;
       background: var(--gold);
       display: block;
+    }
+
+    .mini-mark {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      flex: 0 0 34px;
     }
 
     .footer {
@@ -407,23 +419,23 @@
       <section class="cards-section" id="destinations" aria-label="Luxury travel categories">
         <div class="cards-grid">
           <article class="feature-card">
-            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=90" alt="Exclusive luxury destination with mountains and ocean" />
-            <div class="card-copy"><h2>Exclusive<br />Destinations</h2><div class="compass-line"><span></span>✦<span></span></div></div>
+            <img src="./images/ED1.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/ED1.jpeg';" alt="Exclusive luxury destination with dramatic ocean cliffs" />
+            <div class="card-copy"><h2>Exclusive<br />Destinations</h2><div class="compass-line"><span></span><img class="mini-mark" src="./images/MM1.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/MM1.png';" alt="Norman Gregory compass mark" /><span></span></div></div>
           </article>
 
           <article class="feature-card">
-            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=90" alt="Curated luxury hotel journey" />
-            <div class="card-copy"><h2>Curated<br />Journeys</h2><div class="compass-line"><span></span>✦<span></span></div></div>
+            <img src="./images/CJ1.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/CJ1.jpeg';" alt="Curated romantic luxury journey in Venice at sunset" />
+            <div class="card-copy"><h2>Curated<br />Journeys</h2><div class="compass-line"><span></span><img class="mini-mark" src="./images/MM1.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/MM1.png';" alt="Norman Gregory compass mark" /><span></span></div></div>
           </article>
 
           <article class="feature-card">
-            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=90" alt="Tailored fine dining luxury experience" />
-            <div class="card-copy"><h2>Tailored<br />Experiences</h2><div class="compass-line"><span></span>✦<span></span></div></div>
+            <img src="./images/TE1.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/TE1.jpeg';" alt="Tailored luxury safari experience with lion and zebra" />
+            <div class="card-copy"><h2>Tailored<br />Experiences</h2><div class="compass-line"><span></span><img class="mini-mark" src="./images/MM1.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/MM1.png';" alt="Norman Gregory compass mark" /><span></span></div></div>
           </article>
 
           <article class="feature-card" id="hotels">
-            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1200&q=90" alt="Exquisite luxury hotel pool at sunset" />
-            <div class="card-copy"><h2>Exquisite<br />Hotels</h2><div class="compass-line"><span></span>✦<span></span></div></div>
+            <img src="./images/EH1.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/EH1.jpeg';" alt="Exquisite luxury hotel entrance with classic service" />
+            <div class="card-copy"><h2>Exquisite<br />Hotels</h2><div class="compass-line"><span></span><img class="mini-mark" src="./images/MM1.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/MM1.png';" alt="Norman Gregory compass mark" /><span></span></div></div>
           </article>
         </div>
       </section>
