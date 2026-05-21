@@ -1,10 +1,753 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Norman Gregory Luxury Travel</title>
+  <style>
+    :root {
+      --navy: #07111f;
+      --deep-navy: #030812;
+      --cream: #f7f0e4;
+      --soft-cream: #fbf7ef;
+      --gold: #d6aa38;
+      --dark-gold: #a47c22;
+      --text: #111827;
+      --muted: #667085;
+      --white: #ffffff;
+      --border: #dfcfaa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--soft-cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 17, 31, 0.96);
+      border-bottom: 1px solid rgba(214, 170, 56, 0.35);
+      backdrop-filter: blur(16px);
+    }
+
+    .header-inner {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .logo img {
+      width: 150px;
+      height: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-menu a {
+      padding-bottom: 6px;
+      border-bottom: 1px solid transparent;
+      transition: 0.25s ease;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .header-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border: 1px solid var(--gold);
+      color: var(--navy);
+      background: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      transition: 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .header-button:hover {
+      background: var(--white);
+      border-color: var(--white);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .mobile-label {
+      display: none;
+      color: var(--white);
+      border: 1px solid rgba(214, 170, 56, 0.5);
+      padding: 9px 12px;
+      cursor: pointer;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .hero {
+      min-height: 780px;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(3, 8, 18, 0.91), rgba(3, 8, 18, 0.56), rgba(3, 8, 18, 0.12)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 720px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      line-height: 1.02;
+    }
+
+    .hero h1 {
+      font-size: clamp(58px, 8vw, 112px);
+      letter-spacing: -0.04em;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 em {
+      display: block;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.86);
+      margin-bottom: 34px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 28px;
+      min-height: 56px;
+      border: 1px solid transparent;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+
+    .btn-primary:hover {
+      background: var(--white);
+      border-color: var(--white);
+    }
+
+    .btn-outline {
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 48px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(38px, 5vw, 62px);
+      color: var(--text);
+    }
+
+    .section-header p {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .destination-card {
+      position: relative;
+      min-height: 345px;
+      overflow: hidden;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .destination-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--image) center/cover no-repeat;
+      transition: transform 0.7s ease;
+    }
+
+    .destination-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.18), transparent);
+    }
+
+    .destination-card:hover::before {
+      transform: scale(1.09);
+    }
+
+    .destination-content {
+      position: absolute;
+      z-index: 2;
+      left: 26px;
+      right: 26px;
+      bottom: 26px;
+    }
+
+    .destination-content h3 {
+      font-size: 32px;
+      letter-spacing: 0.04em;
+    }
+
+    .destination-content span {
+      display: inline-block;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .dark-section {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card {
+      border: 1px solid rgba(214, 170, 56, 0.28);
+      background: rgba(255, 255, 255, 0.045);
+      padding: 36px;
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      border: 1px solid rgba(214, 170, 56, 0.55);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 24px;
+      margin-bottom: 26px;
+    }
+
+    .service-card h3 {
+      font-size: 31px;
+      margin-bottom: 18px;
+    }
+
+    .service-card p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 16px;
+    }
+
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .split-image {
+      min-height: 560px;
+      background: url("https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+    }
+
+    .split-content {
+      padding: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .split-content h2 {
+      font-size: clamp(38px, 4vw, 58px);
+      margin-bottom: 24px;
+    }
+
+    .split-content p {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+
+    .feature-item {
+      border-top: 1px solid var(--dark-gold);
+      padding-top: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      color: var(--text);
+    }
+
+    .contact-section {
+      background: #ede4d2;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-copy h2 {
+      font-size: clamp(38px, 4vw, 58px);
+      margin-bottom: 24px;
+    }
+
+    .contact-copy p {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 12px;
+      color: #344054;
+    }
+
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 36px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid var(--border);
+      padding: 14px 15px;
+      font: inherit;
+      color: var(--text);
+      background: var(--white);
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--dark-gold);
+    }
+
+    textarea {
+      min-height: 145px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      border: none;
+      cursor: pointer;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .form-submit:hover {
+      background: var(--dark-gold);
+    }
+
+    .page-hero {
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(3, 8, 18, 0.86), rgba(3, 8, 18, 0.42)),
+        url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=2400&q=80") center/cover no-repeat;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(52px, 7vw, 92px);
+      margin-top: 10px;
+    }
+
+    .page-hero p {
+      color: rgba(255,255,255,.84);
+      font-size: 20px;
+      max-width: 680px;
+      margin-top: 18px;
+    }
+
+    .site-footer {
+      background: var(--navy);
+      color: var(--white);
+      border-top: 1px solid rgba(214, 170, 56, 0.35);
+      padding: 34px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 14px;
+    }
+
+    .footer-inner img {
+      width: 135px;
+    }
+
+    .footer-tagline {
+      color: var(--gold);
+    }
+
+    @media (max-width: 980px) {
+      .header-button,
+      .nav-menu {
+        display: none;
+      }
+
+      .mobile-label {
+        display: block;
+      }
+
+      .menu-toggle:checked ~ .nav-menu {
+        display: grid;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 92px;
+        padding: 24px 40px;
+        background: var(--navy);
+        border-top: 1px solid rgba(214, 170, 56, 0.3);
+      }
+
+      .destination-grid,
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .split-section,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .split-content {
+        padding: 40px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .header-inner {
+        min-height: 82px;
+      }
+
+      .logo img {
+        width: 118px;
+      }
+
+      .menu-toggle:checked ~ .nav-menu {
+        top: 82px;
+        padding: 22px;
+      }
+
+      .hero {
+        min-height: 700px;
+      }
+
+      .hero h1 {
+        font-size: 54px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .destination-grid,
+      .service-grid,
+      .form-row,
+      .feature-list {
+        grid-template-columns: 1fr;
+      }
+
+      .split-image {
+        min-height: 360px;
+      }
+
+      .split-content,
+      .contact-form {
+        padding: 28px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Norman Gregory Luxury Travel</h1>
-  <p>This is working correctly again.</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Norman Gregory Luxury Travel Home">
+        <img src="/mnt/data/NormanGreg.png" alt="Norman Gregory Luxury Travel logo" />
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+      <label for="menu-toggle" class="mobile-label">Menu</label>
+
+      <nav class="nav-menu" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="services.html">Services</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <a href="contact.html" class="header-button">Inquire Now</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-content">
+        <p class="eyebrow">Extraordinary Journeys</p>
+        <h1>Curated Exclusively <em>for You.</em></h1>
+        <p>Bespoke luxury travel experiences, refined hotels, private guides, seamless logistics, and beautiful destination moments designed around how you want to feel.</p>
+        <div class="button-row">
+          <a href="contact.html" class="btn btn-primary">Plan Your Journey</a>
+          <a href="destinations.html" class="btn btn-outline">Explore Destinations</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <p class="eyebrow">Curated Experiences</p>
+          <h2>Extraordinary destinations. Unforgettable moments.</h2>
+          <p>Start with the destination. We shape the hotels, experiences, pace, transfers, and finishing touches into a seamless luxury journey.</p>
+        </div>
+
+        <div class="destination-grid">
+          <a href="destinations.html" class="destination-card" style="--image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80');">
+            <div class="destination-content">
+              <h3>Hawaii</h3>
+              <span>Explore</span>
+            </div>
+          </a>
+
+          <a href="destinations.html" class="destination-card" style="--image: url('https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1400&q=80');">
+            <div class="destination-content">
+              <h3>Europe</h3>
+              <span>Explore</span>
+            </div>
+          </a>
+
+          <a href="destinations.html" class="destination-card" style="--image: url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1400&q=80');">
+            <div class="destination-content">
+              <h3>Alaska</h3>
+              <span>Explore</span>
+            </div>
+          </a>
+
+          <a href="destinations.html" class="destination-card" style="--image: url('https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=1400&q=80');">
+            <div class="destination-content">
+              <h3>Luxury Cruises</h3>
+              <span>Explore</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-section">
+      <div class="container service-grid">
+        <article class="service-card">
+          <div class="service-icon">♛</div>
+          <h3>VIP Hotel Benefits</h3>
+          <p>Preferred-style perks, welcome notes, hotel credits, breakfast options, upgrade requests, and polished stay coordination.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">✈</div>
+          <h3>Seamless Planning</h3>
+          <p>Flights, transfers, tours, timing, dining, and confirmations arranged with calm attention to detail.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Personalized Experiences</h3>
+          <p>Every journey is designed around your interests, pace, occasion, travel style, and ideal version of luxury.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split-section">
+        <div class="split-image" aria-label="Luxury resort view"></div>
+        <div class="split-content">
+          <p class="eyebrow">The Norman Gregory Approach</p>
+          <h2>Luxury should feel personal, calm, and beautifully organized.</h2>
+          <p>We create carefully shaped travel experiences for clients who want expert guidance, elevated recommendations, thoughtful details, and a polished process from first idea to final confirmation.</p>
+          <div class="feature-list">
+            <div class="feature-item">Personal</div>
+            <div class="feature-item">Refined</div>
+            <div class="feature-item">Seamless</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section">
+      <div class="container contact-grid">
+        <div class="contact-copy">
+          <p class="eyebrow">Let’s Begin</p>
+          <h2>Your next journey starts with a conversation.</h2>
+          <p>Tell us where you want to go, how you want to travel, and what would make the trip feel exceptional.</p>
+          <div class="contact-details">
+            <span>Phone: Consultation by appointment</span>
+            <span>Email: info@normangregoryluxurytravel.com</span>
+            <span>Location: El Paso, Texas • Serving travelers nationwide</span>
+          </div>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Full name" />
+            <input type="email" name="email" placeholder="Email address" />
+          </div>
+          <div class="form-row">
+            <input type="tel" name="phone" placeholder="Phone number" />
+            <input type="text" name="destination" placeholder="Preferred destination" />
+          </div>
+          <select name="trip-type">
+            <option value="">Trip Type</option>
+            <option>Honeymoon or Anniversary</option>
+            <option>Family Luxury Vacation</option>
+            <option>Luxury Cruise</option>
+            <option>Europe Custom Itinerary</option>
+            <option>Hawaii Vacation</option>
+          </select>
+          <textarea name="message" placeholder="Tell us about your travel dates, travelers, budget range, hotel style, and must-have experiences."></textarea>
+          <button class="btn form-submit" type="submit">Send Inquiry</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="/mnt/data/NormanGreg.png" alt="Norman Gregory Luxury Travel logo" />
+      <p>© 2026 Norman Gregory Luxury Travel. All rights reserved.</p>
+      <p class="footer-tagline">Luxury Travel • VIP Hotels • Curated Experiences</p>
+    </div>
+  </footer>
 </body>
 </html>
