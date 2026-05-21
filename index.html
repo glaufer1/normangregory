@@ -8,7 +8,7 @@
   <meta name="keywords" content="luxury travel advisor, Norman Gregory Luxury Travel, bespoke travel planning, Hawaii luxury travel, luxury hotels, curated journeys, custom vacations" />
   <meta property="og:title" content="Norman Gregory Luxury Travel" />
   <meta property="og:description" content="Journeys beyond the ordinary. Personalized, profound, unforgettable luxury travel planning." />
-  <meta property="og:image" content="images/Hawaii1.jpeg" />
+  <meta property="og:image" content="./images/Hawaii1.jpeg" />
   <meta property="og:type" content="website" />
 
   <style>
@@ -123,22 +123,22 @@
       background: var(--navy);
     }
 
-    .hero::before {
-      content: "";
+    .hero-image {
       position: absolute;
       inset: 8px;
-      background-image: url("images/Hawaii1.jpeg");
-      background-size: cover;
-      background-position: center;
+      width: calc(100% - 16px);
+      height: calc(100% - 16px);
+      object-fit: cover;
+      object-position: center;
       opacity: .98;
       z-index: 0;
     }
 
-    .hero::after {
-      content: "";
+    .hero-fade {
       position: absolute;
       inset: 0;
       z-index: 1;
+      pointer-events: none;
       background:
         linear-gradient(90deg, var(--navy) 0%, rgba(6,19,31,.90) 3%, rgba(6,19,31,.12) 18%, rgba(6,19,31,.04) 50%, rgba(6,19,31,.22) 82%, rgba(6,19,31,.94) 97%, var(--navy) 100%),
         linear-gradient(180deg, rgba(6,19,31,.88) 0%, rgba(6,19,31,.22) 20%, rgba(6,19,31,.08) 58%, rgba(6,19,31,.78) 92%, var(--navy) 100%),
@@ -339,7 +339,7 @@
         </nav>
 
         <a class="brand" href="index.html" aria-label="Norman Gregory Luxury Travel home">
-          <img src="images/NormanGreg.png" alt="Norman Gregory Luxury Travel logo" />
+          <img src="./images/NormanGreg.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/NormanGreg.png';" alt="Norman Gregory Luxury Travel logo" />
         </a>
 
         <nav class="nav-right" aria-label="Right navigation">
@@ -357,6 +357,8 @@
 
     <main>
       <section class="hero" aria-label="Luxury Hawaii resort sunset with ocean view">
+        <img class="hero-image" src="./images/Hawaii1.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/Hawaii1.jpeg';" alt="Luxury Hawaii resort pool at sunset with palm trees and ocean view" loading="eager" fetchpriority="high" />
+        <div class="hero-fade"></div>
         <div class="hero-content">
           <h1>Journeys<br />Beyond the<br />Ordinary.</h1>
           <p class="subhead">Personalized. Profound. Unforgettable.</p>
@@ -398,7 +400,7 @@
         </div>
 
         <a class="footer-logo" href="index.html" aria-label="Norman Gregory Luxury Travel home">
-          <img src="images/NormanGreg.png" alt="Norman Gregory Luxury Travel logo" />
+          <img src="./images/NormanGreg.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/NormanGreg.png';" alt="Norman Gregory Luxury Travel logo" />
         </a>
 
         <div class="socials footer-socials" aria-label="Social links">
