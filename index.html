@@ -187,6 +187,33 @@
 
     .hero-button:hover { background: #f0cf76; transform: translateY(-2px); }
 
+    .hero-socials {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(18px, 3vw, 28px);
+    }
+
+    .hero-socials a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .hero-socials a:hover {
+      transform: translateY(-2px) scale(1.08);
+      opacity: .9;
+    }
+
+    .hero-socials img {
+      width: clamp(34px, 4.2vw, 50px);
+      height: clamp(34px, 4.2vw, 50px);
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,.45));
+    }
+
     .cards-section {
       border-top: 1px solid var(--gold-dark);
       padding: 38px 38px 40px;
@@ -362,6 +389,7 @@
       h1 { font-size: 46px; }
       .subhead { letter-spacing: .18em; line-height: 1.7; }
       .hero-button { padding: 16px 28px; width: 100%; justify-content: center; }
+      .hero-socials { margin-top: 22px; gap: 18px; }
       .cards-section { padding: 28px 18px; }
       .cards-grid { grid-template-columns: 1fr; gap: 24px; }
       .feature-card { min-height: 430px; }
@@ -413,6 +441,11 @@
           <h1>Journeys<br />Beyond the<br />Ordinary</h1>
           <p class="subhead">Personalized. Profound. Unforgettable.</p>
           <a class="hero-button" href="#contact">Begin Your Journey</a>
+          <div class="hero-socials" aria-label="Social media links">
+            <a href="#" aria-label="Facebook"><img src="./images/FB.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/FB.png';" alt="Facebook logo" /></a>
+            <a href="#" aria-label="Instagram"><img src="./images/IG.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/IG.png';" alt="Instagram logo" /></a>
+            <a href="#" aria-label="YouTube"><img src="./images/YT.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/YT.png';" alt="YouTube logo" /></a>
+          </div>
         </div>
       </section>
 
