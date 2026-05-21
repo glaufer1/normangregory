@@ -18,7 +18,6 @@
       --gold: #d7a84a;
       --gold-dark: #a96f25;
       --white: #ffffff;
-      --muted: rgba(255,255,255,.74);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,49 +41,38 @@
     }
 
     .nav-inner {
+      position: relative;
       max-width: 1440px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr auto 1fr;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
       align-items: start;
-      gap: 28px;
+      gap: clamp(22px, 3vw, 56px);
     }
 
     .nav-left,
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 36px;
+      justify-content: center;
+      gap: clamp(28px, 3vw, 58px);
       color: var(--white);
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: .12em;
       font-weight: 600;
       padding-top: 22px;
-    }
-
-    .nav-right { justify-content: flex-end; }
-
-    .hamburger {
-      width: 42px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .hamburger span {
-      height: 2px;
-      background: var(--white);
-      display: block;
+      white-space: nowrap;
     }
 
     .nav-left a:hover,
     .nav-right a:hover,
-    .socials a:hover { color: var(--gold); }
+    .mobile-menu a:hover { color: var(--gold); }
 
     .brand {
       text-align: center;
       min-width: 340px;
+      z-index: 2;
     }
 
     .brand img {
@@ -93,23 +81,28 @@
       filter: drop-shadow(0 14px 32px rgba(0,0,0,.55));
     }
 
-    .socials {
-      display: flex;
-      gap: 14px;
-      color: var(--gold);
-      font-weight: 700;
+    .menu-toggle { display: none; }
+
+    .mobile-label {
+      display: none;
+      width: 42px;
+      flex-direction: column;
+      gap: 8px;
+      cursor: pointer;
+      position: absolute;
+      left: 0;
+      top: 18px;
+      z-index: 4;
     }
 
-    .socials a {
-      width: 24px;
-      height: 24px;
-      border: 1px solid var(--gold);
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      transition: .25s ease;
+    .mobile-label span {
+      height: 2px;
+      background: var(--white);
+      display: block;
+    }
+
+    .mobile-menu {
+      display: none;
     }
 
     .hero {
@@ -293,26 +286,55 @@
       margin: 0 auto;
     }
 
-    .footer-socials { justify-self: end; }
+    .footer-spacer { min-height: 1px; }
 
-    .mobile-menu { display: none; }
+    @media (max-width: 1200px) {
+      .nav-left,
+      .nav-right {
+        gap: 24px;
+        font-size: 12px;
+        letter-spacing: .10em;
+      }
+      .brand { min-width: 300px; }
+      .brand img { width: 276px; }
+    }
 
     @media (max-width: 1050px) {
-      .nav-left a, .nav-right a, .nav-right .socials { display: none; }
-      .nav-inner { grid-template-columns: auto 1fr auto; }
-      .brand { min-width: 0; }
+      .top-nav { padding: 22px 24px; }
+      .nav-inner { grid-template-columns: 1fr auto 1fr; align-items: start; }
+      .nav-left,
+      .nav-right { display: none; }
+      .mobile-label { display: flex; }
+      .brand { min-width: 0; grid-column: 2; }
       .brand img { width: 264px; }
-      .mobile-menu { display: block; color: var(--white); font-size: 28px; }
+      .mobile-menu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 78px;
+        background: rgba(6,19,31,.96);
+        border: 1px solid rgba(215,168,74,.45);
+        backdrop-filter: blur(14px);
+        padding: 22px 24px;
+        flex-direction: column;
+        gap: 18px;
+        text-transform: uppercase;
+        letter-spacing: .16em;
+        font-size: 14px;
+        z-index: 3;
+      }
+      .menu-toggle:checked ~ .mobile-menu { display: flex; }
       .hero { min-height: 800px; }
       .cards-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-inner { grid-template-columns: 1fr; text-align: center; }
-      .footer-socials { justify-self: center; }
+      .footer-spacer { display: none; }
     }
 
     @media (max-width: 640px) {
       .top-nav { padding: 18px 18px; }
       .brand img { width: 204px; }
-      .hamburger { width: 34px; gap: 7px; }
+      .mobile-label { width: 34px; gap: 7px; top: 16px; }
+      .mobile-menu { top: 68px; }
       .hero { min-height: 720px; }
       .hero-content { padding-top: 130px; }
       h1 { font-size: 54px; }
@@ -331,8 +353,10 @@
   <div class="page">
     <header class="top-nav" aria-label="Site header">
       <div class="nav-inner">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="mobile-label" aria-label="Open mobile menu"><span></span><span></span><span></span></label>
+
         <nav class="nav-left" aria-label="Left navigation">
-          <a class="hamburger" href="#" aria-label="Menu"><span></span><span></span><span></span></a>
           <a href="index.html">Home</a>
           <a href="#blog">Blog</a>
           <a href="#contact">Contact</a>
@@ -346,11 +370,15 @@
           <a href="#destinations">Destinations</a>
           <a href="#experiences">Experiences</a>
           <a href="#hotels">Hotels</a>
-          <div class="socials" aria-label="Social links">
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Pinterest">P</a>
-          </div>
+        </nav>
+
+        <nav class="mobile-menu" aria-label="Mobile navigation">
+          <a href="index.html">Home</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+          <a href="#destinations">Destinations</a>
+          <a href="#experiences">Experiences</a>
+          <a href="#hotels">Hotels</a>
         </nav>
       </div>
     </header>
@@ -403,12 +431,7 @@
           <img src="./images/NORMAN%20GREGORY1.png" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/glaufer1/normangregory/main/images/NORMAN%20GREGORY1.png';" alt="Norman Gregory Luxury Travel logo" />
         </a>
 
-        <div class="socials footer-socials" aria-label="Social links">
-          <a href="#" aria-label="Twitter">X</a>
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">IG</a>
-          <a href="#" aria-label="Pinterest">P</a>
-        </div>
+        <div class="footer-spacer" aria-hidden="true"></div>
       </div>
     </footer>
   </div>
