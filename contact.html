@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Norman Gregory Luxury Travel | Bespoke Travel Planners</title>
+  <meta name="description" content="Get in touch with Norman Gregory Luxury Travel to begin planning your bespoke luxury itinerary, exclusive hotel stay, safari, or cruise vacation." />
+  <link rel="canonical" href="https://glaufer1.github.io/normangregory/contact.html" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="top-nav" aria-label="Site header">
+      <div class="nav-inner">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+        <label for="menu-toggle" class="mobile-label" aria-label="Open mobile menu"><span></span><span></span><span></span></label>
 
+        <nav class="nav-left" aria-label="Left navigation">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+
+        <a class="brand" href="index.html" aria-label="Norman Gregory Luxury Travel home">
+          <img src="./images/NORMAN GREGORY1.png" alt="Norman Gregory Luxury Travel logo" />
+        </a>
+
+        <nav class="nav-right" aria-label="Right navigation">
+          <a href="destinations.html">Destinations</a>
+          <a href="experiences.html">Experiences</a>
+          <a href="hotels.html">Hotels</a>
+        </nav>
+
+        <nav class="mobile-menu" aria-label="Mobile navigation">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+          <a href="destinations.html">Destinations</a>
+          <a href="experiences.html">Experiences</a>
+          <a href="hotels.html">Hotels</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Contact luxury travel advisor hero banner">
+        <img class="hero-image" src="./images/Paris Travel Agency .webp" alt="Paris luxury travel planning with Eiffel Tower" loading="eager" fetchpriority="high" />
+        <div class="hero-fade"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Begin Your Journey</p>
+          <h1>Let's Create<br />Something<br />Unforgettable</h1>
+          <p class="hero-copy">Every luxury trip begins with a simple conversation. Share your destination dreams, preferred dates, and traveler numbers, and we will contact you to start designing your custom itinerary.</p>
+          <a class="gold-button" href="#contact-form-section">Fill Out Inquiry</a>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact-form-section" aria-label="Contact Norman Gregory Luxury Travel">
+        <div class="contact-wrap">
+          <div>
+            <p class="contact-kicker">Inquire Now</p>
+            <h2 class="contact-title">Contact Us Today</h2>
+            <p class="contact-copy">Share a few details about your dream trip, and Norman Gregory Luxury Travel will follow up to begin designing a personalized, profound, unforgettable journey.</p>
+            <div class="contact-info">
+              <p>Contact: <a href="tel:33437589">33 437 589</a></p>
+              <p><a href="mailto:norman@ngpart.com">norman@ngpart.com</a></p>
+              <p><a href="https://www.ngpart.com">www.ngpart.com</a></p>
+            </div>
+            <div class="contact-socials" aria-label="Footer social media links">
+              <a href="#" aria-label="Facebook"><img src="./images/FB.png" alt="Facebook logo" /></a>
+              <a href="#" aria-label="Instagram"><img src="./images/IG.png" alt="Instagram logo" /></a>
+              <a href="#" aria-label="YouTube"><img src="./images/YT.png" alt="YouTube logo" /></a>
+            </div>
+          </div>
+
+          <form class="contact-form" id="luxuryContactForm" action="https://script.google.com/macros/s/AKfycbxyj3sC_WubYec5j4HEIFGaCfp0oEc8Q-eEn4xjMJWI75IyKP77jZyOgS7eEbWixTOD/exec" method="POST" target="hiddenContactFrame" onsubmit="return handleContactSubmit(event)">
+            <input type="hidden" name="source" value="Norman Gregory Luxury Travel Website - Contact Page" />
+            <div class="form-grid">
+              <label><span>Name</span><input name="name" type="text" required /></label>
+              <label><span>Phone Number</span><input name="phone" type="tel" /></label>
+            </div>
+            <label class="full-field"><span>Email</span><input name="email" type="email" required /></label>
+            <label class="full-field"><span>Destination Ideas & Dates</span><input name="dates" type="text" placeholder="e.g. Hawaii Honeymoon, October 2026" /></label>
+            <label class="full-field"><span>Details of Your Vision</span><textarea name="message" required placeholder="Tell us where you would like to travel, number of travelers, and the luxury experience you have in mind."></textarea></label>
+            <button class="send-button" type="submit">Send Inquiry</button>
+            <p class="form-status" id="formStatus"></p>
+            <iframe title="Hidden contact form submission" name="hiddenContactFrame" style="display:none;"></iframe>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <div class="contact-info">
+            <p>Contact: <a href="tel:33437589">33 437 589</a></p>
+            <p><a href="mailto:norman@ngpart.com">norman@ngpart.com</a></p>
+            <p><a href="https://www.ngpart.com">www.ngpart.com</a></p>
+          </div>
+          <div class="contact-socials">
+            <a href="#" aria-label="Facebook"><img src="./images/FB.png" alt="Facebook logo" /></a>
+            <a href="#" aria-label="Instagram"><img src="./images/IG.png" alt="Instagram logo" /></a>
+            <a href="#" aria-label="YouTube"><img src="./images/YT.png" alt="YouTube logo" /></a>
+          </div>
+        </div>
+        <a class="footer-logo" href="index.html" aria-label="Norman Gregory Luxury Travel home">
+          <img src="./images/NORMAN GREGORY1.png" alt="Norman Gregory Luxury Travel logo" />
+        </a>
+        <div></div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function handleContactSubmit(event) {
+      var form = event.target;
+      var status = document.getElementById('formStatus');
+      if (form.action.indexOf('REPLACE_WITH_GOOGLE_APPS_SCRIPT_WEB_APP_URL') !== -1) {
+        event.preventDefault();
+        status.textContent = 'The contact form is designed and ready. Add your Google Apps Script Web App URL to activate Google Sheet submissions.';
+        return false;
+      }
+      status.textContent = 'Thank you. Your request is being submitted.';
+      setTimeout(function () { form.reset(); }, 1200);
+      return true;
+    }
+  </script>
+</body>
+</html>
