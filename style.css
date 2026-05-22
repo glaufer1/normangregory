@@ -53,9 +53,11 @@ h1, h2, h3, h4, .brand, .section-title, .cta-band h2, .card-copy h2, .destinatio
 }
 
 h1 {
+  font-size: clamp(48px, 5.5vw, 92px);
+  line-height: 1.05;
   text-transform: uppercase;
   letter-spacing: 0.045em;
-  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.65);
 }
 
 /* Layout Containers */
@@ -269,6 +271,7 @@ h1 {
   position: relative;
   z-index: 2;
   width: min(920px, calc(100% - 36px));
+  animation: fadeInUp 1.2s cubic-bezier(0.25, 0.8, 0.25, 1) both;
 }
 
 .eyebrow {
@@ -434,6 +437,7 @@ h1 {
   height: 1px;
   background: var(--gold);
   display: block;
+  transition: var(--transition-smooth);
 }
 
 .mini-mark {
@@ -441,6 +445,17 @@ h1 {
   height: 34px;
   object-fit: contain;
   flex: 0 0 34px;
+  transition: var(--transition-smooth);
+}
+
+/* Compass Card Micro-animations */
+.feature-card:hover .mini-mark {
+  transform: rotate(45deg);
+}
+
+.feature-card:hover .compass-line span:first-child,
+.feature-card:hover .compass-line span:last-child {
+  width: 64px;
 }
 
 /* Destination Grid Cards (Destinations Page) */
@@ -736,6 +751,62 @@ details p {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-5px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll Indicator styles */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.7;
+  transition: var(--transition-smooth);
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+}
+
+.mouse-wheel {
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--gold);
+  border-radius: 15px;
+  position: relative;
+}
+
+.mouse-wheel::after {
+  content: '';
+  width: 4px;
+  height: 8px;
+  background: var(--gold);
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  animation: scrollMouse 1.8s infinite;
+}
+
+@keyframes scrollMouse {
+  0% { opacity: 1; transform: translate(-50%, 0); }
+  50% { opacity: 0.3; transform: translate(-50%, 8px); }
+  100% { opacity: 1; transform: translate(-50%, 0); }
 }
 
 /* Contact Section & Forms */
