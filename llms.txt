@@ -1,0 +1,31 @@
+# Norman Gregory Luxury Travel
+
+> Norman Gregory Luxury Travel designs bespoke luxury journeys, exclusive destinations, curated experiences, and exquisite hotel stays. We help discerning travelers plan custom voyages with confidence, style, and personalized care.
+
+## Core Information & Navigation
+- [Homepage (index.html)](file:///index.html): Luxury travel advisor homepage, booking inquiry, and primary overview.
+- [Exclusive Destinations (destinations.html)](file:///destinations.html): Our signature destinations including Hawaii, Europe, Alaska, and the Caribbean.
+- [Hotels & Resorts (hotels.html)](file:///hotels.html): Exquisite hotel collections curated for discerning clients. *(In development)*
+- [Tailored Experiences (experiences.html)](file:///experiences.html): Private tours, safari coordination, and bucket-list adventures. *(In development)*
+- [Curated Journeys (journeys.html)](file:///journeys.html): Custom travel itineraries and trip styles. *(In development)*
+- [Contact Advisor (contact.html)](file:///contact.html): Custom inquiries and booking requests. *(In development)*
+- [Luxury Travel Blog (blog.html)](file:///blog.html): Articles, guides, and inspiration for high-end travel. *(In development)*
+
+## Destination Specialties
+1. **Hawaii Luxury Travel**: Custom island planning, private luaus, oceanfront suites, and Road to Hana private experiences.
+2. **European Journeys**: Multi-city cultural itineraries, river cruises, private historical tours, culinary guides, and romantic escapes.
+3. **Safari & Adventure**: High-end lodges, wildlife game drives, helicopter tours, and complex logistics coordination.
+4. **Luxury Cruises**: Ocean liner suites, boutique yacht charters, curated shore excursions, and luxury river cruises.
+5. **Caribbean Escapes**: Private beach villas, high-end all-inclusive resorts, honeymoons, and family milestone celebrations.
+
+## The Planning Process
+- **01 Discover**: Advisor aligns with client goals, pace, dates, budget expectations, and trip objectives.
+- **02 Curate**: Narrowing options down to custom-selected properties, routes, and experiences.
+- **03 Design**: Structuring the daily flow, comfort, transfers, and exclusive VIP amenities.
+- **04 Support**: Delivering continuous support from booking through departure and arrival.
+
+## Contact Information
+- **Phone**: +33 437 589
+- **Email**: norman@ngpart.com
+- **Website**: https://www.ngpart.com
+- **Google Sheet Inquiries**: Active web app integration for custom itinerary requests.

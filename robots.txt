@@ -1,0 +1,31 @@
+# robots.txt for Norman Gregory Luxury Travel
+
+# Allow all standard search engine crawlers
+User-agent: *
+Allow: /
+
+# Allow AI & LLM Search Engine Crawlers to index our premium content
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Pointers to Sitemaps and AI indexing files
+Sitemap: https://www.ngpart.com/sitemap.xml
+llms: https://www.ngpart.com/llms.txt
